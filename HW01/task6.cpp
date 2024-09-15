@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main(int argc, char *argv[]) {
-    long long int n = std::stoll(argv[0]);
+    long long int n = std::stoll(argv[1]);
     for (long long int i=0; i<=n; i++)
     {
         std::cout << i << " ";
