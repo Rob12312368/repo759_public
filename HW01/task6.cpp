@@ -1,8 +1,7 @@
 #include <iostream>
 
-int main() {
-    long long int n;
-    std::cin >> n;
+int main(int argc, char *argv[]) {
+    long long int n = std::stoll(argv[0]);
     for (long long int i=0; i<=n; i++)
     {
         std::cout << i << " ";
@@ -12,5 +11,5 @@ int main() {
     {
         std::cout << i << " ";
     }
-    
+    return 0;
 }
