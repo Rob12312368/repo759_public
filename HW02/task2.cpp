@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <chrono>
 #include "convolution.h"
 
 using std::chrono::high_resolution_clock;
