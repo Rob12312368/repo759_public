@@ -14,7 +14,9 @@ module load gcc/13.2.0
 #cd repo759/HW01
 g++ convolution.cpp task2.cpp -Wall -O3 -std=c++17 -o task2
 
-./task2 1000 1000
+./task2 1000 10
+./task2 1000 100
+./task2 100 100
 
 
 # # Loop from 2^10 to 2^30
