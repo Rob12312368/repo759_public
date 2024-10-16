@@ -3,10 +3,6 @@
 #include "msort.h"
 #include <iostream>
 void mymerge(int* l_arr, int* r_arr, size_t l_size, size_t r_size){
-    for(size_t i = 0 ; i < l_size; i++)
-        std::cout << l_arr[i] << " ";
-    for(size_t i = 0 ; i < r_size; i++)
-        std::cout << r_arr[i] << " ";
     int tmparr[l_size+r_size];
     size_t l = 0, r = 0, i = 0;
     while (l < l_size and r < r_size){
@@ -35,28 +31,39 @@ void mymerge(int* l_arr, int* r_arr, size_t l_size, size_t r_size){
     }
     for(size_t j = 0; j < l_size + r_size; j++){
         l_arr[j] = tmparr[j];
-        //std::cout << tmparr[j];
     }
-    std::cout << "\n";
-    std::cout << "-----" << '\n';
     return;
 
 }
 
 
 void msort(int* arr, const std::size_t n, const std::size_t threshold){
+
     if (n < threshold){
         std::sort(arr, arr+n);
         return;
     }
-    if (n%2 == 0){
-        msort(arr, n/2, threshold);
-        msort(arr + n/2, n/2, threshold);
-        mymerge(arr, arr+n/2, n/2, n/2);
+    #pragma omp parallel
+    {
+        #pragma omp single nowait
+        {
+            if (n%2 == 0){
+                #pragma omp task firstprivate(n)
+                msort(arr, n/2, threshold);
+                #pragma omp task firstprivate(n)
+                msort(arr + n/2, n/2, threshold);
+                #pragma omp taskwait
+                mymerge(arr, arr+n/2, n/2, n/2);
+            }
+            else{
+                #pragma omp task firstprivate(n)
+                msort(arr, n/2, threshold);
+                #pragma omp task firstprivate(n)
+                msort(arr + n/2, n - n/2, threshold);
+                #pragma omp taskwait
+                mymerge(arr, arr + n/2, n/2, n - n/2);
+            }
+        }
     }
-    else{
-        msort(arr, n/2, threshold);
-        msort(arr + n/2, n - n/2, threshold);
-        mymerge(arr, arr + n/2, n/2, n - n/2);
-    }
+
 }
