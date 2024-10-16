@@ -15,6 +15,8 @@ module load gcc/13.2.0
 g++ task1.cpp matmul.cpp -Wall -O3 -std=c++17 -o task1 -fopenmp
 
 
+#./task1 1024 3
+
 # Loop from 1-20
 for (( i=1; i<=20; i++ )); do
     n=$((i))  # Calculate 2^i
@@ -22,10 +24,10 @@ for (( i=1; i<=20; i++ )); do
     # Run your C++ program with n and capture the output
     # Assuming your C++ program is compiled as `task1` and outputs three numbers on separate lines
     result=$(./task1 1024 $n)
-
+    #echo "$result"
     # Extract the first number from the output (assuming it's the first line of the output)
-    time_taken=$(echo "$result" | head -n 3)
-
+    time_taken=$(echo "$result" | tail -n 1)
+    #echo "$time_taken"
     # Write n and time_taken to the output file
     echo "$i,$time_taken"
 done
