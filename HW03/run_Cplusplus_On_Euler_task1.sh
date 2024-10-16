@@ -24,7 +24,7 @@ for (( i=1; i<=20; i++ )); do
     result=$(./task1 1024 $n)
 
     # Extract the first number from the output (assuming it's the first line of the output)
-    time_taken=$(echo "$result" | head -n 1)
+    time_taken=$(echo "$result" | head -n 3)
 
     # Write n and time_taken to the output file
     echo "$i,$time_taken"
