@@ -27,14 +27,14 @@ int main(int argc, char * argv[]){
 
     for (size_t i = 0; i < n * n; i++)
     {
-        image[i] = 1;
+        image[i] = distrib_image(gen);;
     }
 
     std::uniform_real_distribution<> distrib_mask(-1.0, 1.0);
 
     for (size_t i = 0; i < m * m; i++)
     {
-        mask[i] = 1;
+        mask[i] = distrib_mask(gen);;
     }
 
     omp_set_dynamic(0);         // Disable dynamic adjustment
@@ -44,9 +44,9 @@ int main(int argc, char * argv[]){
     end = high_resolution_clock::now();
 
     duration_sec = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
-    std::cout << duration_sec.count() << "\n";
     std::cout << output[0] << "\n";
     std::cout << output[n*n-1] << "\n";
+    std::cout << duration_sec.count() << "\n";
 
     delete [] image;
     delete [] mask;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "convolution.h"
+#include <omp.h>
 void convolve(const float *image, float *output, std::size_t n, const float *mask, std::size_t m){
     size_t half = (m - 1) / 2;
     #pragma omp parallel for collapse(2) schedule(static)
