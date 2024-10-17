@@ -30,11 +30,3 @@ for (( i=1; i<=20; i++ )); do
     echo "$i,$time_taken"
 done
 
-# for t in {1..20}
-# do 
-#     echo "Running task with N = $((10**6)), threads = $t, and block size = 256"
-#     ./task3 $((10**6)) $t 256
-# done
-
-# echo
-

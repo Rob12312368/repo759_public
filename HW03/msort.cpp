@@ -1,4 +1,3 @@
-
 #include <algorithm>  // For std::sort
 #include "msort.h"
 #include <iostream>
