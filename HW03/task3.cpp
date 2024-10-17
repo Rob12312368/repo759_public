@@ -26,7 +26,8 @@ int main(int argc, char* argv[]){
     }
 
 
-    omp_set_dynamic(0);         // Disable dynamic adjustment
+       // Disable dynamic adjustment
+    omp_set_nested(1);
     omp_set_num_threads(t); 
     start = high_resolution_clock::now();
     msort(arr, n, ts);
