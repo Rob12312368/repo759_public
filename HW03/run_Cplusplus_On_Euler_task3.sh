@@ -12,11 +12,11 @@ module load gcc/13.2.0
 # clone (replace the github link to yours)
 #git clone https://github.com/tsung-wei-huang/repo759.git
 #cd repo759/HW01
-g++ test.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
+g++ task2.cpp convolution.cpp -Wall -O3 -std=c++17 -o task2 -fopenmp
 
 
 # Loop from 1-20
-for (( i=1; i<=10; i++ )); do
+for (( i=1; i<=20; i++ )); do
     n=$((2**i))  # Calculate 2^i
 
     # Run your C++ program with n and capture the output
