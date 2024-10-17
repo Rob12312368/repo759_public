@@ -21,7 +21,7 @@ for (( i=1; i<=20; i++ )); do
 
     # Run your C++ program with n and capture the output
     # Assuming your C++ program is compiled as `task1` and outputs three numbers on separate lines
-    result=$(./task3 1000000 $n 512)
+    result=$(./task3 1000000 $n 256)
 
     # Extract the first number from the output (assuming it's the first line of the output)
     time_taken=$(echo "$result" | tail -n 1)
