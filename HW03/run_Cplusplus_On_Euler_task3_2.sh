@@ -15,26 +15,26 @@ module load gcc/13.2.0
 g++ task3.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
 
 
-# # Loop from 1-20
-# for (( i=1; i<=20; i++ )); do
-#     n=$((i))  # Calculate 2^i
+# Loop from 1-20
+for (( i=1; i<=20; i++ )); do
+    n=$((i))  # Calculate 2^i
 
-#     # Run your C++ program with n and capture the output
-#     # Assuming your C++ program is compiled as `task1` and outputs three numbers on separate lines
-#     result=$(./task3 1000000 $n 1024)
+    # Run your C++ program with n and capture the output
+    # Assuming your C++ program is compiled as `task1` and outputs three numbers on separate lines
+    result=$(./task3 1000000 $n 1024)
 
-#     # Extract the first number from the output (assuming it's the first line of the output)
-#     time_taken=$(echo "$result" | tail -n 1)
+    # Extract the first number from the output (assuming it's the first line of the output)
+    time_taken=$(echo "$result" | tail -n 1)
 
-#     # Write n and time_taken to the output file
-#     echo "$i,$time_taken"
-# done
-
-for t in {1..20}
-do 
-    echo "Running task with N = $((10**6)), threads = $t, and block size = 256"
-    ./task3 $((10**6)) $t 256
+    # Write n and time_taken to the output file
+    echo "$i,$time_taken"
 done
 
-echo
+# for t in {1..20}
+# do 
+#     echo "Running task with N = $((10**6)), threads = $t, and block size = 256"
+#     ./task3 $((10**6)) $t 256
+# done
+
+# echo
 
