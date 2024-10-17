@@ -12,7 +12,7 @@ module load gcc/13.2.0
 # clone (replace the github link to yours)
 #git clone https://github.com/tsung-wei-huang/repo759.git
 #cd repo759/HW01
-g++ task3.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
+g++ test.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
 
 
 # Loop from 1-20
