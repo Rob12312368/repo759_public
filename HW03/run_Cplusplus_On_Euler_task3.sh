@@ -16,7 +16,7 @@ g++ task2.cpp convolution.cpp -Wall -O3 -std=c++17 -o task2 -fopenmp
 
 
 # Loop from 1-20
-for (( i=1; i<=20; i++ )); do
+for (( i=1; i<=10; i++ )); do
     n=$((2**i))  # Calculate 2^i
 
     # Run your C++ program with n and capture the output
