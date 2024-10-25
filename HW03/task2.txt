@@ -1,0 +1,3 @@
+Problem 2
+
+c) My performance stops improving significantly after the number of threads gets above 8. I think it is related to the extent of parallelism of my code. The improvement of performance through parallelism is restricted by how much we can make our program parallel.
