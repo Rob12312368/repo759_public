@@ -2,7 +2,7 @@
 #SBATCH --job-name=run_Cplusplus
 #SBATCH --partition=instruction
 #SBATCH --ntasks=1 --cpus-per-task=8
-#SBATCH --time=0-00:00:01
+#SBATCH --time=0-00:01:00
 #SBATCH --output=run_Cplusplus_static.out
 #SBATCH --error=run_Cplusplus_static.err
 # log in the submission directory
